@@ -34,6 +34,8 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
+        'employeeAuth'  => \App\Filters\employeeAuth::class,
+        'employerAuth'  => \App\Filters\employerAuth::class,
     ];
 
     /**
@@ -67,6 +69,8 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, array<string, string>>>|array<string, list<string>>
      */
+
+
     public array $globals = [
         'before' => [
             // 'honeypot',
