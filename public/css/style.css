@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+    --blue: #133E87;
+    --light-blue: #D1EBFE;
+    --green: #8FD14F;
+    --purple: #604CC3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding-top: 55px;
+    background-color: #FBFBFB;
+}
+
+.message {
+    padding: 5px 10px;
+    width: 100%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success {
+    background-color: #D4EDDA;
+    color: #155724;
+}
+
+.error {
+    background-color: #F8D7DA;
+    color: #721C24;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    height: 55px;
+    background-color: #F5F5F5;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 10;
+}
+
+nav .logo {
+    text-decoration: none;
+}
+
+nav .logo img {
+    width: 100px;
+}
+
+nav .links {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    gap: 15px;
+}
+
+.links .link a {
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: black;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.links .link a:hover {
+    color: var(--blue);
+}
+
+.links .link .get-started {
+    background-color: var(--green);
+    border-radius: 5px;
+    color: #fff;
+}
+
+.links .link .get-started:hover {
+    color: #fff;
+}
+
+footer {
+    width: 100%;
+    padding: 30px 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+hr {
+    height: 1px;
+    background-color: lightslategrey;
+    width: 100%;
+}
+
+footer .upper-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.upper-footer ul {
+    list-style: none;
+}
+
+.upper-footer ul li {
+    margin-bottom: 7px;
+}
+
+.upper-footer ul li h3 {
+    font-size: 1.5rem;
+}
+
+.upper-footer ul li a {
+    text-decoration: none;
+    color: gray;
+    transition: .2s;
+}
+
+.upper-footer ul li a:hover {
+    color: #000;
+}
+
+footer .lower-footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+footer .social-media {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .social-media a {
+    color: black;
+    font-size: 24px;
+}
+
+footer .last-part {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .last-part img {
+    width: 80px;
+}
+
+.title {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--blue);
+}
