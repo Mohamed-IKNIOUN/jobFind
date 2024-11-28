@@ -14,42 +14,48 @@
         <?php $errors = session()->getFlashdata('errors'); ?>
 
         <?php if (session()->getFlashdata('success')): ?>
-            <div class="message success">
-                <?= session()->getFlashdata('success'); ?>
-            </div>
+        <div class="message success">
+            <?= session()->getFlashdata('success'); ?>
+        </div>
         <?php endif; ?>
 
         <?php if (session()->getFlashdata('error')): ?>
-            <div class="message error">
-                <?= session()->getFlashdata('error'); ?>
-            </div>
+        <div class="message error">
+            <?= session()->getFlashdata('error'); ?>
+        </div>
+        <?php endif; ?>
+
+        <?php if (session()->getFlashdata('warning')): ?>
+        <div class="message warning">
+            <?= session()->getFlashdata('warning'); ?>
+        </div>
         <?php endif; ?>
 
         <a href="<?= site_url('/') ?>"><img src="images/logoJF.png" alt=""></a>
         <p class="title">Register</p>
         <form class="form" method="post" action="<?= base_url('/register') ?>">
             <?php if (isset($errors['username'])):; ?>
-                <div class="message error">
-                    <?= $errors['username'] ?>
-                </div>
+            <div class="message error">
+                <?= $errors['username'] ?>
+            </div>
             <?php endif; ?>
             <input type="text" class="input" placeholder="username" name="username" value="<?= old('username') ?>">
             <?php if (isset($errors['password'])):; ?>
-                <div class="message error">
-                    <?= $errors['password'] ?>
-                </div>
+            <div class="message error">
+                <?= $errors['password'] ?>
+            </div>
             <?php endif; ?>
             <input type="password" class="input" placeholder="password" name="password" value="<?= old('password') ?>">
             <?php if (isset($errors['email'])):; ?>
-                <div class="message error">
-                    <?= $errors['email'] ?>
-                </div>
+            <div class="message error">
+                <?= $errors['email'] ?>
+            </div>
             <?php endif; ?>
             <input type="email" class="input" placeholder="email" name="email" value="<?= old('email') ?>">
             <?php if (isset($errors['role'])):; ?>
-                <div class="message error">
-                    <?= $errors['role'] ?>
-                </div>
+            <div class="message error">
+                <?= $errors['role'] ?>
+            </div>
             <?php endif; ?>
             <div class="role-field">
                 I am an :

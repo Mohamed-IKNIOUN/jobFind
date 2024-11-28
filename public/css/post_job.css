@@ -1,3 +1,13 @@
+.post-container {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+        url('/images/post-background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 22px 0;
+}
+
 .post-job-form {
     display: flex;
     align-items: center;
@@ -10,13 +20,37 @@
 .form-group {
     display: flex;
     flex-direction: column;
-
 }
 
 input,
 textarea {
     width: 300px;
     border: 1px solid gray;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 10px;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+label {
+    font-weight: 800;
+    font-size: 17px;
+    color: #fff;
+}
+
+.submit-input {
+    padding: 8px 20px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.submit-input:hover {
+    background-color: rgb(3, 109, 3);
 }

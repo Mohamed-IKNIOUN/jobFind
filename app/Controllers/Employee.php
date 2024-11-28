@@ -55,10 +55,47 @@ class Employee extends BaseController
         return redirect()->back()->with('error', 'Failed to apply for the job. Please try again.');
     }
 
+
+
+
+
     // Show details of a single job
     public function show($id)
     {
         $data['job'] = $this->jobModel->find($id);
         return view('jobs/show', $data);
+    }
+
+
+
+
+    // see my applications
+    public function applications()
+    {
+        $employeeId = session()->get('user_id');
+        $title = "My applications";
+        $data['jobs'] = $this->jobModel->getJobsAppliedByEmployee($employeeId);
+        $data['title'] = $title;
+
+        return view('employee/applications', $data);
+    }
+
+
+    // remove application
+    public function delete($id)
+    {
+
+        $applicationModel = new ApplicationsModel();
+        $applicationModel->delete($id);
+
+        return redirect()->to('/jobs/myApplications')->with('success', 'Application removed successfully!');
+    }
+
+
+    //search for jobs
+    public function searchJobs($keyword)
+    {
+
+        return view('employee/searchResults');
     }
 }

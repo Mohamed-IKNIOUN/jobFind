@@ -18,19 +18,19 @@ class UserModel extends Model
     protected $updatedField = 'updated_at';
 
     // Password hashing before saving
-    protected function setPassword(string $password)
-    {
-        return password_hash($password, PASSWORD_DEFAULT);
-    }
+    // protected function setPassword(string $password)
+    // {
+    //     return password_hash($password, PASSWORD_DEFAULT);
+    // }
 
-    protected $beforeInsert = ['hashPassword'];
-    protected $beforeUpdate = ['hashPassword'];
+    // protected $beforeInsert = ['hashPassword'];
+    // protected $beforeUpdate = ['hashPassword'];
 
-    protected function hashPassword(array $data)
-    {
-        if (isset($data['data']['password'])) {
-            $data['data']['password'] = $this->setPassword($data['data']['password']);
-        }
-        return $data;
-    }
+    // protected function hashPassword(array $data)
+    // {
+    //     if (isset($data['data']['password'])) {
+    //         $data['data']['password'] = $this->setPassword($data['data']['password']);
+    //     }
+    //     return $data;
+    // }
 }

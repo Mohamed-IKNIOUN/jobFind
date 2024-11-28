@@ -14,9 +14,68 @@
     color: #721C24;
 }
 
-.jobs-container {
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-area {
+    width: 100%;
+    align-self: center;
+    padding: 80px 0;
     display: flex;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('/images/search-background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.search-area h1 {
+    color: #fff;
+}
+
+.search-form {
+    display: flex;
+    width: 50%;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-area input {
+    padding: 8px 12px;
+}
+
+.search-area input[type=text] {
+    font-size: 1.1rem;
+    flex-grow: 1;
+    border: none;
+    outline: none;
+}
+
+.search-area input[type=submit] {
+    width: 120px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: .2s;
+    background-color: #00ABEB;
+    color: #fff;
+    border: none;
+}
+
+.search-area input[type=submit]:hover {
+    background-color: #069acf;
+}
+
+.jobs-container {
+    display: flex;
     justify-content: center;
     gap: 13px;
     margin-bottom: 10px;
@@ -25,7 +84,8 @@
 .job-card {
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
+    justify-content: space-around;
     flex-direction: column;
     padding: 15px 12px;
     border: 1px solid lightgrey;
@@ -40,9 +100,22 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.job-card .employer-profile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.employer-profile img {
+    width: 50px;
+}
+
 .job-post-date {
     font-size: 13px;
-    color: gray;
+    color: #144;
 }
 
 a {
@@ -57,21 +130,45 @@ a {
     gap: 5px;
 }
 
-.apply-btn {
-    padding: 4px 10px;
+.apply-btn,
+.remove-apply-btn {
+    padding: 3px 10px;
     border: 1px solid transparent;
     border-radius: 5px;
-    /* background-color: var(--green); */
     background-color: #72BF78;
     color: #fff;
     transition: .2s;
+    gap: 10px;
 }
+
+.remove-apply-btn {
+    display: flex;
+    align-items: center;
+    background-color: red;
+}
+
+
 
 .apply-btn:hover {
     background-color: var(--green);
 }
 
+
 .location img,
 .app-count img {
-    width: 24px;
+    width: 21px;
+}
+
+.edit-job {
+    padding: 5px 23px;
+    background-color: #155724;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.remove-job {
+    padding: 5px 12px;
+    background-color: red;
+    color: #fff;
+    border-radius: 4px;
 }

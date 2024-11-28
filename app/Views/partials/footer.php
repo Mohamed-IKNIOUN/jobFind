@@ -22,10 +22,10 @@
                     <h3>Company</h3>
                 </li>
                 <li>
-                    <a href="">About us</a>
+                    <a href="/about">About us</a>
                 </li>
                 <li>
-                    <a href="">Terms o use</a>
+                    <a href="/Terms">Terms o use</a>
                 </li>
             </ul>
         </div>

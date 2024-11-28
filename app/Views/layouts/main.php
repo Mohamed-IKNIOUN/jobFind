@@ -20,15 +20,21 @@
 
     <!-- dynamic messages section -->
     <?php if (session()->getFlashdata('success')): ?>
-        <div class="message success">
-            <?= session()->getFlashdata('success'); ?>
-        </div>
+    <div class="message success">
+        <?= session()->getFlashdata('success'); ?>
+    </div>
     <?php endif; ?>
 
     <?php if (session()->getFlashdata('error')): ?>
-        <div class="message error">
-            <?= session()->getFlashdata('error'); ?>
-        </div>
+    <div class="message error">
+        <?= session()->getFlashdata('error'); ?>
+    </div>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('warning')): ?>
+    <div class="message warning">
+        <?= "Warning : " . session()->getFlashdata('warning'); ?>
+    </div>
     <?php endif; ?>
 
     <!-- main content -->

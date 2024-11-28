@@ -9,7 +9,16 @@ class Employer extends BaseController
     private $jobModel;
     function myJobs()
     {
-        return view('employer/myJobs');
+
+        $this->jobModel = new JobModel();
+
+        $jobs = $this->jobModel->where('employer_id', session()->get('user_id'))->findAll();
+        $data = [
+            'jobs' => $jobs,
+            'title' => 'My posts',
+        ];
+
+        return view('employer/myJobs', $data);
     }
 
 
@@ -25,6 +34,8 @@ class Employer extends BaseController
     {
         $title = 'Post a job';
         $data = ['title' => $title];
+
+        return view('employer/post_job', $data);
     }
 
 
@@ -34,6 +45,7 @@ class Employer extends BaseController
 
     public function createJobPost()
     {
+
         $jobModel = new JobModel();
 
         $title = $this->request->getPost('title');
@@ -56,9 +68,9 @@ class Employer extends BaseController
 
 
         if ($jobModel->insert($data)) {
-            return redirect()->to('/employer/post_job')->with('success', 'Job posted successfully!');
+            return redirect()->to('/myPosts')->with('success', 'Job posted successfully!');
         } else {
-            return redirect()->back()->with('error', 'Failed to post the job. Please try again.');
+            return redirect()->back()->withInput()->with('error', 'Failed to post the job. Please try again.');
         }
     }
 
@@ -72,28 +84,41 @@ class Employer extends BaseController
 
     public function edit($id)
     {
-        $data['job'] = $this->jobModel->find($id);
-        return view('jobs/edit', $data);
+
+        $jobModel  = new JobModel();
+
+        $data['job'] = $jobModel->find($id);
+        $data['title'] = 'Update';
+        return view('employer/edit_job', $data);
     }
 
 
 
 
-
-
-
-
-    public function update($id)
+    public function editPost()
     {
+        $jobModel = new JobModel();
+
+        $title = $this->request->getPost('title');
+        $description = $this->request->getPost('description');
+        $location = $this->request->getPost('location');
+        $salary = $this->request->getPost('salary');
+        $id = $this->request->getPost('job_id');
+
+
+        if (!$title || !$description || !$location || !$salary) {
+            return redirect()->to('/jobs/edit/' . $id)->withInput()->with('error', 'All fields are required');
+        }
+
         $data = [
-            'title' => $this->request->getPost('title'),
-            'description' => $this->request->getPost('description'),
-            'location' => $this->request->getPost('location'),
-            'salary' => $this->request->getPost('salary'),
+            'title' => $title,
+            'description' => $description,
+            'location' => $location,
+            'salary' => $salary,
         ];
 
-        $this->jobModel->update($id, $data);
-        return redirect()->to('/jobs');
+        $jobModel->update($id, $data);
+        return redirect()->to('/myPosts')->with('success', 'Job edited successfully !');
     }
 
 
@@ -106,7 +131,8 @@ class Employer extends BaseController
 
     public function delete($id)
     {
-        $this->jobModel->delete($id);
-        return redirect()->to('/jobs');
+        $jobModel = new JobModel();
+        $jobModel->delete($id);
+        return redirect()->to('/myPosts')->with('success', 'Job deleted successfully !');
     }
 }

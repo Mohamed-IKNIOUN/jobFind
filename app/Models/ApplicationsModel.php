@@ -10,7 +10,7 @@ class ApplicationsModel extends Model
     protected $primaryKey = 'application_id';
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
-    protected $useSoftDeletes = true;
+    // protected $useSoftDeletes = true;
     protected $allowedFields = [
         'job_id',
         'employee_id',

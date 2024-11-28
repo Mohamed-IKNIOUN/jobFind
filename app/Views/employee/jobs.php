@@ -4,55 +4,56 @@
 <link rel="stylesheet" href="<?= base_url('css/jobs.css') ?>">
 <?= $this->endSection(); ?>
 
+
 <?= $this->section('content') ?>
+<div class="container">
 
+    <!-- Display the list of jobs  -->
 
-<!-- Display the list of jobs  -->
-
-<h1 class="title">Available Jobs</h1>
-
-
-<div class="jobs-container">
-
-    <?php if (!empty($jobs)): ?>
-
-
-    <?php foreach ($jobs as $job): ?>
-    <div class="job-card">
-
-
-        <h3> <?= esc($job['title']) ?></h3>
-        <p><?= esc($job['description']) ?></p>
-        <p>Salary : <strong><?= esc($job['salary']) ?></strong> MAD</p>
-
-        <p class="location"><img src="/images/location.png" alt=""> <?= esc($job['location']) ?></p>
-        <p class="app-count"><img src="/images/app-count.png" alt=""> <?= esc($job['applications_count']) ?>
-            Applications</p>
-        <p class="job-post-date">Posted at : <?= esc($job['posted_date']) ?></p>
-        <a href="<?= site_url('/jobs/apply/' . $job['job_id']); ?>" class="apply-btn"
-            onclick="return confirm('Are you sure you want to apply for this job?');">
-            <img src="/images/apply.png" alt=""> Apply
-        </a>
+    <div class="search-area">
+        <h1>Search for jobs by keywords</h1>
+        <form action="/jobs/search" method="get" class="search-form">
+            <input type="text" name="keywords" id="" placeholder="Enter keywords city, title, description ...">
+            <input type="submit" value="Search">
+        </form>
     </div>
-    <?php endforeach; ?>
+
+    <h1 class="title">Available Jobs</h1>
+
+    <div class="jobs-container">
+
+        <?php if (!empty($jobs)): ?>
 
 
+        <?php foreach ($jobs as $job): ?>
+        <div class="job-card">
 
-    <?php else: ?>
 
-    <p>There are no jobs at this moment.</p>
+            <div class="employer-profile">
+                <img src="/images/default_employer_profile.png" alt="">
+                <span class="employer-name"><?= $job['employer_username'] ?></span>
+            </div>
+            <strong class="location"> <img src="/images/job-title.png"> <?= esc($job['title']) ?></strong><br>
+            <p><?= esc($job['description']) ?></p>
+            <p>Salary : <strong><?= esc($job['salary']) ?></strong> MAD</p>
 
-    <?php endif; ?>
+            <p class="location"><img src="/images/location.png" alt=""> <?= esc($job['location']) ?></p>
+            <p class="app-count"><img src="/images/app-count.png" alt=""> <?= esc($job['applications_count']) ?>
+                Applications</p>
+            <p class="job-post-date">Posted at : <?= esc($job['posted_date']) ?></p>
+            <a href="<?= site_url('/jobs/apply/' . $job['job_id']); ?>" class="apply-btn">
+                <img src="/images/apply.png" alt=""> Apply
+            </a>
+        </div>
+        <?php endforeach; ?>
 
+        <?php else: ?>
+
+        <p>There are no jobs at this moment.</p>
+
+        <?php endif; ?>
+
+    </div>
 
 </div>
-
-
-
-
-
-
-
-
-
 <?= $this->endSection(); ?>

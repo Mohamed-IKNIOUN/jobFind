@@ -47,9 +47,11 @@ class User extends BaseController
                 return redirect()->to('register')->withInput()->with('error', 'There is already a user with this email.');
             } elseif (!$isFound) {
 
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
                 $data = [
                     'email' => $email,
-                    'password' => $password,
+                    'password' => $hashedPassword,
                     'username' => $username,
                     'role' => $role
                 ];
@@ -102,8 +104,9 @@ class User extends BaseController
             //user found
             if ($user) {
 
+                $verifyPassword = password_verify($password, $user['password']);
 
-                if ($password === $user['password']) {
+                if ($verifyPassword) {
                     $session = session();
 
                     $session->set([
@@ -142,5 +145,15 @@ class User extends BaseController
     public function contact()
     {
         return view('contact');
+    }
+
+    public function termsOfUse()
+    {
+        return view('termOfUse', ['title' => 'Terms of use']);
+    }
+
+    public function about()
+    {
+        return view('about', ['title' => 'About us']);
     }
 }
