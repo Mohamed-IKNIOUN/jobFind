@@ -17,20 +17,19 @@ class UserModel extends Model
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
 
-    // Password hashing before saving
-    // protected function setPassword(string $password)
-    // {
-    //     return password_hash($password, PASSWORD_DEFAULT);
-    // }
 
-    // protected $beforeInsert = ['hashPassword'];
-    // protected $beforeUpdate = ['hashPassword'];
+    public function getUserProfile()
+    {
 
-    // protected function hashPassword(array $data)
-    // {
-    //     if (isset($data['data']['password'])) {
-    //         $data['data']['password'] = $this->setPassword($data['data']['password']);
-    //     }
-    //     return $data;
-    // }
+        if (session()->get('user_type') == 'employee') {
+            return $this->select('profile.*, users.*')
+                ->join('profile', 'users.id = profile.user_id')
+                ->where('id', session()->get('user_id'))
+                ->first();
+        } elseif (session()->get('user_type') == 'employer') {
+            return $this->select('users.*')
+                ->where('id', session()->get('user_id'))
+                ->first();
+        }
+    }
 }

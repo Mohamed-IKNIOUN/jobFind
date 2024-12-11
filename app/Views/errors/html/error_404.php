@@ -3,83 +3,97 @@
 
 <head>
     <meta charset="utf-8">
-    <title><?= lang('Errors.pageNotFound') ?></title>
+    <!-- <title><?= lang('Errors.pageNotFound') ?></title> -->
+    <title>Page not found</title>
 
     <style>
-    div.logo {
-        height: 200px;
-        width: 155px;
-        display: inline-block;
-        opacity: 0.08;
-        position: absolute;
-        top: 2rem;
-        left: 50%;
-        margin-left: -73px;
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
 
-    body {
-        height: 100%;
-        background: #fafafa;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        color: #777;
-        font-weight: 300;
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     h1 {
-        font-weight: lighter;
-        letter-spacing: normal;
-        font-size: 3rem;
-        margin-top: 0;
-        margin-bottom: 0;
-        color: #222;
-    }
-
-    .wrap {
-        max-width: 1024px;
-        margin: 5rem auto;
-        padding: 2rem;
-        background: #fff;
-        text-align: center;
-        border: 1px solid #efefef;
-        border-radius: 0.5rem;
-        position: relative;
-    }
-
-    pre {
-        white-space: normal;
-        margin-top: 1.5rem;
-    }
-
-    code {
-        background: #fafafa;
-        border: 1px solid #efefef;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        display: block;
+        color: #8FD14F;
+        font-size: 25rem;
     }
 
     p {
-        margin-top: 1.5rem;
+        font-size: 5rem;
+        position: absolute;
+        background-color: #fff;
+        padding: 0 12rem;
     }
 
-    .footer {
-        margin-top: 2rem;
-        border-top: 1px solid #efefef;
-        padding: 1em 2em 0 2em;
-        font-size: 85%;
-        color: #999;
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 5rem;
+        font-size: 1.4rem;
     }
 
-    a:active,
-    a:link,
-    a:visited {
-        color: #dd4814;
+    .red {
+        color: red;
+        font-size: 1.7rem;
+    }
+
+    a {
+        padding: 5px 20px;
+        background-color: #8FD14F;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 4px;
+    }
+
+    a:hover {
+        background-color: green;
     }
     </style>
 </head>
 
 <body>
-    <div class="wrap">
+
+    <span>
+        <h3>404 - Page Not Found</h3>
+
+
+        <a href="/">Go home</a>
+    </span>
+
+    <div class="container">
+        <h1>404</h1>
+        <p>Not Found</p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="wrap">
         <h1>404</h1>
 
         <p>
@@ -89,7 +103,7 @@
             <?= lang('Errors.sorryCannotFind') ?>
             <?php endif; ?>
         </p>
-    </div>
+    </div> -->
 </body>
 
 </html>

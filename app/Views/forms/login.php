@@ -51,7 +51,7 @@
             <?php endif; ?>
             <input type="password" class="input" placeholder="Password" name="password" value="<?= old('password') ?>">
             <p class="page-link">
-                <span class="page-link-label">Forgot Password?</span>
+                <a href="/forget-password" class="page-link-label">Forgot Password?</a>
             </p>
             <input class="form-btn" value="Log in" type="submit">
         </form>

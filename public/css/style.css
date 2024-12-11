@@ -83,8 +83,9 @@ nav .links {
     transition: .2s;
 }
 
+
 .links .link a:hover {
-    color: var(--blue);
+    color: green;
 }
 
 .links .link .get-started {
@@ -95,6 +96,10 @@ nav .links {
 
 .links .link .get-started:hover {
     color: #fff;
+}
+
+#logout {
+    color: red;
 }
 
 footer {

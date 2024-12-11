@@ -2,14 +2,16 @@
 
 <?= $this->section('custom_css') ?>
 <link rel="stylesheet" href="<?= base_url('css/post_job.css') ?>">
+<link rel="stylesheet" href="<?= base_url('css/dynamic_links/post_job.css') ?>">
+
 <?= $this->endSection(); ?>
 
 <?= $this->section('content') ?>
 
 
 <div class="post-container">
-    <h1 class="title" style="color:#fff">Post a Job</h1>
 
+    <h1 class="title" style="color:#fff">Post a Job</h1>
     <form action="<?= base_url('/jobs/create') ?>" method="post" class="post-job-form">
         <div class="form-group">
             <label for="title">Job Title</label>
@@ -34,6 +36,7 @@
 
         <button type="submit" class="submit-input">Post Job</button>
     </form>
+
 </div>
 
 

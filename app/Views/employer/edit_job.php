@@ -35,7 +35,7 @@
             <input type="number" name="salary" id="salary" class="form-control" value="<?= $job['salary'] ?>">
         </div>
 
-        <button type="submit" class="submit-input">Post Job</button>
+        <button type="submit" class="submit-input">Edit</button>
     </form>
 </div>
 

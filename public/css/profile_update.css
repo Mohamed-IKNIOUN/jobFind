@@ -1,0 +1,9 @@
+#edit-profile-button {
+    background-color: green;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+}

@@ -14,6 +14,34 @@
     color: #721C24;
 }
 
+.employer-banner {
+    width: 100%;
+    height: 44vh;
+    /* background-color: gray; */
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
+        url('/images/employer-banner.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.employee-appication-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 36vh;
+    background-color: gray;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
+        url('/images/employer-banner.jpg');
+    color: #fff;
+    font-size: 1.2rem;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -77,6 +105,7 @@
 .jobs-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 13px;
     margin-bottom: 10px;
 }
@@ -92,7 +121,7 @@
     border-radius: 8px;
     gap: 10px;
     text-align: center;
-    width: calc(100% / 5);
+    width: 300px;
     transition: .2s;
 }
 
@@ -171,4 +200,11 @@ a {
     background-color: red;
     color: #fff;
     border-radius: 4px;
+}
+
+.view-applications {
+    padding: 5px 10px;
+    background-color: #144;
+    color: #fff;
+    border-radius: 5px;
 }

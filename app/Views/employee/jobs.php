@@ -2,6 +2,7 @@
 
 <?= $this->section('custom_css') ?>
 <link rel="stylesheet" href="<?= base_url('css/jobs.css') ?>">
+<link rel="stylesheet" href="<?= base_url('css/dynamic_links/main_link.css') ?>">
 <?= $this->endSection(); ?>
 
 
@@ -25,31 +26,31 @@
         <?php if (!empty($jobs)): ?>
 
 
-        <?php foreach ($jobs as $job): ?>
-        <div class="job-card">
+            <?php foreach ($jobs as $job): ?>
+                <div class="job-card">
 
 
-            <div class="employer-profile">
-                <img src="/images/default_employer_profile.png" alt="">
-                <span class="employer-name"><?= $job['employer_username'] ?></span>
-            </div>
-            <strong class="location"> <img src="/images/job-title.png"> <?= esc($job['title']) ?></strong><br>
-            <p><?= esc($job['description']) ?></p>
-            <p>Salary : <strong><?= esc($job['salary']) ?></strong> MAD</p>
+                    <div class="employer-profile">
+                        <img src="/images/default_employer_profile.png" alt="">
+                        <span class="employer-name"><?= $job['employer_username'] ?></span>
+                    </div>
+                    <strong class="location"> <img src="/images/job-title.png"> <?= esc($job['title']) ?></strong><br>
+                    <p><?= esc($job['description']) ?></p>
+                    <p>Salary : <strong><?= esc($job['salary']) ?></strong> MAD</p>
 
-            <p class="location"><img src="/images/location.png" alt=""> <?= esc($job['location']) ?></p>
-            <p class="app-count"><img src="/images/app-count.png" alt=""> <?= esc($job['applications_count']) ?>
-                Applications</p>
-            <p class="job-post-date">Posted at : <?= esc($job['posted_date']) ?></p>
-            <a href="<?= site_url('/jobs/apply/' . $job['job_id']); ?>" class="apply-btn">
-                <img src="/images/apply.png" alt=""> Apply
-            </a>
-        </div>
-        <?php endforeach; ?>
+                    <p class="location"><img src="/images/location.png" alt=""> <?= esc($job['location']) ?></p>
+                    <p class="app-count"><img src="/images/app-count.png" alt=""> <?= esc($job['applications_count']) ?>
+                        Applications</p>
+                    <p class="job-post-date">Posted at : <?= esc($job['created_at']) ?></p>
+                    <a href="<?= site_url('/jobs/apply/' . $job['job_id']); ?>" class="apply-btn">
+                        <img src="/images/apply.png" alt=""> Apply
+                    </a>
+                </div>
+            <?php endforeach; ?>
 
         <?php else: ?>
 
-        <p>There are no jobs at this moment.</p>
+            <p>There are no jobs at this moment.</p>
 
         <?php endif; ?>
 

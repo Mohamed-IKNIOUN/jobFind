@@ -22,8 +22,6 @@ class Employee extends BaseController
         return view('employee/jobs', $data);
     }
 
-
-
     //apply for job
     public function apply($jobId)
     {
@@ -55,19 +53,12 @@ class Employee extends BaseController
         return redirect()->back()->with('error', 'Failed to apply for the job. Please try again.');
     }
 
-
-
-
-
     // Show details of a single job
     public function show($id)
     {
         $data['job'] = $this->jobModel->find($id);
         return view('jobs/show', $data);
     }
-
-
-
 
     // see my applications
     public function applications()
@@ -80,7 +71,6 @@ class Employee extends BaseController
         return view('employee/applications', $data);
     }
 
-
     // remove application
     public function delete($id)
     {
@@ -90,7 +80,6 @@ class Employee extends BaseController
 
         return redirect()->to('/jobs/myApplications')->with('success', 'Application removed successfully!');
     }
-
 
     //search for jobs
     public function searchJobs($keyword)

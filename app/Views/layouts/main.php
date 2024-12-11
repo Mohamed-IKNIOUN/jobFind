@@ -15,6 +15,8 @@
 </head>
 
 <body>
+
+
     <!-- dynamic navbar -->
     <?= $this->include('partials/navbar'); ?>
 

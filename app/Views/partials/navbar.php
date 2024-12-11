@@ -15,26 +15,26 @@ $userType = session()->get('user_type');
         <?php if ($userType == 'employee'): ?>
 
         <li class="link">
-            <a href="/jobs">Jobs</a>
+            <a href="/jobs" id="main-link">Jobs</a>
         </li>
         <li class="link">
-            <a href="/jobs/myApplications">My applications</a>
+            <a href="/jobs/myApplications" id="my-applications-link">My applications</a>
         </li>
         <li class="link">
-            <a href="/profile">Profile</a>
+            <a href="/profile" id="profile-link">Profile</a>
         </li>
 
         <!-- employer -->
         <?php elseif ($userType == 'employer'): ?>
 
         <li class="link">
-            <a href="/myPosts">My posts</a>
+            <a href="/myPosts" id="main-link">My posts</a>
         </li>
         <li class="link">
-            <a href="/jobs/create">Post a job</a>
+            <a href="/jobs/create" id="post-job-link">Post a job</a>
         </li>
         <li class="link">
-            <a href="/profile">Profile</a>
+            <a href="/profile" id="profile-link">Profile</a>
         </li>
 
         <!-- not logged -->
@@ -54,7 +54,7 @@ $userType = session()->get('user_type');
 
         <?php if (session()->get('isLogged')): ?>
         <li class="link">
-            <a href="<?= site_url('/logout') ?>">Logout</a>
+            <a href="<?= site_url('/logout') ?>" id="logout">Logout</a>
         </li>
         <?php endif; ?>
 

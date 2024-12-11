@@ -15,6 +15,7 @@ class ApplicationsModel extends Model
         'job_id',
         'employee_id',
         'date_application',
+        'status',
         'created_at',
         'updated_at'
     ];
@@ -22,4 +23,28 @@ class ApplicationsModel extends Model
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
     protected $deletedField = 'deleted_at';
+
+
+    public function getApplicationsOfJob($jobId)
+    {
+        return $this->select('users.id, users.username, applications.date_application, applications.status, applications.application_id')
+            ->join('users', 'users.id = applications.employee_id', 'inner')
+            ->where('applications.job_id', $jobId)
+            ->findAll();
+    }
+
+    public function getApplicationDetails($applicationId)
+    {
+        return $this
+            ->select(
+                'users.id, users.username,
+            applications.date_application, applications.status, applications.application_id,
+            profile.*
+            '
+            )
+            ->join('users', 'users.id = applications.employee_id')
+            ->join('profile', 'users.id = profile.user_id')
+            ->where('application_id', $applicationId)
+            ->first();
+    }
 }
