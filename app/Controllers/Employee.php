@@ -82,9 +82,35 @@ class Employee extends BaseController
     }
 
     //search for jobs
-    public function searchJobs($keyword)
+    public function search()
     {
 
-        return view('employee/searchResults');
+        $keyword = $this->request->getGet('keywords');
+
+        if (!$keyword) {
+            return redirect()->with('error', 'Enter a keyword');
+        }
+
+        $jobModel = new JobModel();
+
+        $jobs = $jobModel->select('jobs.*, users.username as employer_username, COUNT(applications.application_id) as applications_count')
+            ->join('users', 'users.id = jobs.employer_id', 'left')
+            ->join('applications', 'applications.job_id = jobs.job_id', 'left')
+            ->groupBy('jobs.job_id') // Group by job to count applications
+            ->like('jobs.title', $keyword)
+            ->orLike('jobs.location', $keyword)
+            ->orLike('jobs.description', $keyword)
+            ->findAll();
+
+
+        $data = [
+            'title' => 'Search results',
+            'jobs'  => $jobs,
+            'keyword' => $keyword
+        ];
+
+
+
+        return view('employee/search_results', $data);
     }
 }

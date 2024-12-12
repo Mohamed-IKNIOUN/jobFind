@@ -40,6 +40,8 @@ $routes->get('/jobs', 'Employee::index', ['filter' => 'employeeAuth']);
 $routes->get('/jobs/apply/(:num)', 'Employee::apply/$1', ['filter' => 'employeeAuth']);
 $routes->get('/jobs/myApplications', 'Employee::applications', ['filter' => 'employeeAuth']);
 $routes->get('/jobs/myApplications/delete/(:num)', 'Employee::delete/$1', ['filter' => 'employeeAuth']);
+$routes->get('/jobs/search', 'Employee::search', ['filter' => 'employeeAuth']);
+
 
 
 // -- Employer -- 
